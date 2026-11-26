@@ -1,14 +1,29 @@
-# Project 16 submission checklist
+# Project 16 - Submission Checklist
 
-- [x] Problem statement, synopsis and SRS in the project package
-- [x] Dataset provenance notes and data dictionary
-- [x] Python cleaning logic, data-quality log and exclusions audit
-- [x] SQLite star schema and seven business queries
-- [x] KPI JSON, four charts and notebook in the full submission package
+## LMS upload files
+- [x] Main project report PDF: `submission/Patient_Readmission_Project_Report.pdf`
+- [x] Dataset details and quality PDF: `submission/Patient_Readmission_Dataset_Details.pdf`
+- [x] Cleaned inpatient fact CSV: `submission/patient_readmission_cleaned.csv`
+
+## Technical project
+- [x] Python cleaning pipeline and row-level exclusions audit
+- [x] SQLite schema with keys and checks
+- [x] Seven SQL business queries
+- [x] KPI outputs and four charts
+- [x] Annotated Jupyter notebook
 - [x] Streamlit dashboard source
-- [x] Power BI model/DAX/report-layout guide
-- [x] Excel Power Query/PivotTable guide
-- [x] Automated validation outputs
+- [x] Power BI model guide and DAX measures
+- [x] Excel Power Query and PivotTable guide
+- [x] Automated acceptance tests and separate 20-patient comparison output
 
-## Environment-specific items
-The bundled preview fixture is synthetic and its metrics are not official Synthea or real clinical results. A Power BI .pbix must be saved from Power BI Desktop on Windows. HCL portal submission must be completed in the student's own logged-in portal session.
+## Validation snapshot
+- Raw encounters: 435
+- Clean encounters: 432
+- Eligible inpatient fact rows: 362
+- 30-day readmissions: 78
+- Readmission rate: 21.55%
+- Automated checks: 7/7 passed
+- Separate patient-level comparisons: 20/20 passed
+
+## Scope notes
+The figures above come from project-generated synthetic data. They are not real hospital statistics or official Synthea results. The repository contains Power BI instructions and DAX, but not a native PBIX file. HCLTech Career Shaper portal submission must be completed in the student's own account.
