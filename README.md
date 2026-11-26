@@ -7,27 +7,12 @@
 **Repository:** https://github.com/jaibaranwal/patient-readmission-analysis
 
 ## Project overview
-This project studies whether a completed inpatient encounter is followed by another inpatient encounter for the same synthetic patient within 30 days after discharge. It combines Python/pandas data cleaning, a SQLite star schema, seven analytical SQL queries, descriptive KPIs, charts, a Jupyter notebook, a Streamlit dashboard and Power BI/Excel implementation guides.
+This project studies whether a completed inpatient encounter is followed by another inpatient encounter for the same synthetic patient within 30 days after discharge. It combines Python/pandas data cleaning, a SQLite star schema, seven analytical SQL queries, descriptive KPIs, four charts, a Streamlit dashboard and Power BI/Excel implementation guides.
 
-## Dataset and interpretation
-The repository's bundled working data are a deterministic, project-generated synthetic fixture. They are not real patient records and are not the official Synthea 1K CSV sample. The included preview metrics validate that the pipeline works; they must not be interpreted as hospital performance or clinical findings. The official Synthea sample downloader and instructions are included for a full-source run.
-
-## Verified preview run
-- Raw encounters: 435
-- Clean encounters: 432
-- Eligible inpatient encounters: 362
-- 30-day readmissions: 78
-- Preview readmission rate: 21.55%
-- Synthetic patients: 120
-- SQL query exports: 7
-- Automated checks: 7/7 PASS
-- Independent patient-case comparisons: 20/20 PASS
-- SQLite foreign-key violations: 0
-
-## Run the project
+## Quick run from this repository
 Python 3.10+ is recommended.
 
-\`\`\`bash
+```bash
 python -m venv .venv
 source .venv/bin/activate
 # Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -36,27 +21,44 @@ pip install -r requirements.txt
 python scripts/run_pipeline.py --input data/sample
 python scripts/load_sqlite.py
 python scripts/run_analysis.py
-python scripts/manual_verify_20.py
 python tests/test_pipeline.py
 streamlit run app/streamlit_app.py
-\`\`\`
+```
+
+The committed GitHub sample is a compact, project-generated synthetic smoke-test fixture (12 encounter rows, including inpatient and ambulatory records). It is not actual patient data and is not the same as the larger fixture used for the full report.
+
+## Larger submission-package preview
+The full submission ZIP supplied with this project was run against a larger deterministic project-generated fixture:
+- Raw encounters: 435
+- Clean encounters: 432
+- Eligible inpatient encounters: 362
+- 30-day readmissions: 78
+- Preview readmission rate: 21.55%
+- Synthetic patients: 120
+- SQL query exports: 7
+- Automated checks: 7/7 PASS
+- Independent scripted patient-case comparisons: 20/20 PASS
+- SQLite foreign-key violations: 0
+
+Those are software-validation results from synthetic records, not hospital performance or clinical findings. The GitHub quick-run fixture will produce different totals.
 
 ## Repository structure
-- \`src/\` reusable cleaning and analysis modules
-- \`scripts/\` pipeline, database loader, downloader and validation utilities
-- \`sql/\` SQLite schema and seven business queries; Oracle equivalents are also provided in the downloadable project
-- \`app/\` Streamlit dashboard
-- \`data/sample/\` deterministic synthetic fixture
-- \`data/clean/\` cleaned tables and data-quality audit
-- \`docs/\` problem statement, synopsis, SRS, data dictionary, source notes and BI guides
-- \`reports/\` output charts, metrics, validation results and final report
-- \`notebooks/\` annotated analysis notebook
+- `src/` reusable cleaning and analysis modules
+- `scripts/` pipeline runner, SQLite loader and analysis runner
+- `sql/` SQLite schema and seven business queries
+- `app/` Streamlit dashboard
+- `data/sample/` compact synthetic smoke-test fixture
+- `docs/` problem statement, synopsis, SRS, data dictionary, source notes and BI guides
+
+The full submission package additionally contains the annotated Jupyter notebook, detailed data dictionary, Oracle reference SQL, ER diagram, full preview fixture, cleaned CSVs, SQLite database, result exports, KPI JSON, four PNG charts, validation files, final report PDF and synopsis PDF.
 
 ## Readmission rule
 An index inpatient encounter is flagged when the same patient has a subsequent inpatient encounter starting 1–30 calendar days after its discharge date. Emergency and ambulatory encounters are not counted as inpatient readmissions. This is a descriptive encounter-based rule, not a causal or clinical-risk measure.
 
-## Limitations
-The included preview is synthetic. Regional comparisons are derived from synthetic hospital-state values. Results do not establish preventability, care quality or clinical risk. Power BI Desktop is a Windows application; the project includes model, DAX and three-page layout instructions for the Windows workflow.
+## Dataset and limitations
+The included records are synthetic. They are not the official Synthea 1K CSV sample or real patient records. The full package includes source notes and a downloader for the official Synthea synthetic sample. Synthetic results cannot support diagnosis, treatment, risk scoring, preventability or hospital-performance claims.
+
+Power BI Desktop is a Windows application. Model relationships, DAX and a three-page report layout are documented; an actual PBIX must be saved from Power BI Desktop.
 
 ## Source citation
 Walonoski et al. (2018), *Synthea: An approach, method, and software mechanism for generating synthetic patients and the synthetic electronic health care record*, Journal of the American Medical Informatics Association, 25(3), 230–238. https://doi.org/10.1093/jamia/ocx079
