@@ -1,0 +1,21 @@
+-- Load the cleaned fact CSV as table fact_readmission.
+Total Inpatient Encounters =
+COUNTROWS('fact_readmission')
+
+30-Day Readmissions =
+SUM('fact_readmission'[readmission_30d])
+
+30-Day Readmission Rate =
+DIVIDE([30-Day Readmissions], [Total Inpatient Encounters], 0)
+
+Average Length of Stay =
+AVERAGE('fact_readmission'[length_of_stay_days])
+
+Unique Patients =
+DISTINCTCOUNT('fact_readmission'[patient_id])
+
+Average Days to Readmission =
+AVERAGEX(
+    FILTER('fact_readmission', 'fact_readmission'[readmission_30d] = 1),
+    'fact_readmission'[days_to_readmission]
+)
