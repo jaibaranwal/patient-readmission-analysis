@@ -1,0 +1,13 @@
+Id,Patient,Organization,Start,Stop,EncounterClass,Description,ReasonDescription,Total_Claim_Cost
+e-001,p-001,org-01,2022-01-01T00:00:00Z,2022-01-05T00:00:00Z,inpatient,Inpatient hospital encounter,Diabetes,12000
+e-002,p-001,org-01,2022-01-20T00:00:00Z,2022-01-22T00:00:00Z,inpatient,Inpatient hospital encounter,Diabetes,6500
+e-003,p-001,org-02,2022-02-01T00:00:00Z,2022-02-03T00:00:00Z,inpatient,Inpatient hospital encounter,Heart failure,7000
+e-004,p-001,org-01,2022-02-05T00:00:00Z,2022-02-05T00:00:00Z,ambulatory,Outpatient encounter,Follow-up,250
+e-005,p-002,org-02,2022-04-01T00:00:00Z,2022-04-07T00:00:00Z,inpatient,Inpatient hospital encounter,Pneumonia,9500
+e-006,p-002,org-02,2022-04-20T00:00:00Z,2022-04-21T00:00:00Z,inpatient,Inpatient hospital encounter,Pneumonia,4200
+e-007,p-003,org-03,2022-05-05T00:00:00Z,2022-05-05T00:00:00Z,inpatient,Inpatient hospital encounter,Asthma,1800
+e-008,p-003,org-03,2022-05-25T00:00:00Z,2022-05-27T00:00:00Z,inpatient,Inpatient hospital encounter,Asthma,3100
+e-009,p-004,org-04,2022-06-01T00:00:00Z,2022-06-02T00:00:00Z,inpatient,Inpatient hospital encounter,COPD,5600
+e-010,p-004,org-04,2022-06-03T00:00:00Z,2022-06-04T00:00:00Z,inpatient,Inpatient hospital encounter,COPD,3400
+e-011,p-005,org-01,2022-07-01T00:00:00Z,2022-07-01T00:00:00Z,ambulatory,Outpatient encounter,Check-up,120
+e-012,p-005,org-02,2022-07-10T00:00:00Z,2022-07-12T00:00:00Z,inpatient,Inpatient hospital encounter,Infection,2700
