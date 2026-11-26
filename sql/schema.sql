@@ -21,7 +21,7 @@ CREATE TABLE fact_readmission (
   date_key TEXT NOT NULL, start_date TEXT NOT NULL, discharge_date TEXT NOT NULL,
   length_of_stay_days INTEGER NOT NULL CHECK(length_of_stay_days >= 0),
   readmission_30d INTEGER NOT NULL CHECK(readmission_30d IN (0,1)),
-  next_inpatient_encounter_id TEXT, days_to_readmission INTEGER,
+  next_inpatient_encounter_id TEXT, next_inpatient_start TEXT, days_to_readmission INTEGER,
   age_at_admission REAL, age_band TEXT NOT NULL, reason_category TEXT NOT NULL,
   region TEXT NOT NULL, total_cost REAL NOT NULL CHECK(total_cost >= 0),
   FOREIGN KEY(patient_id) REFERENCES dim_patient(patient_id),
