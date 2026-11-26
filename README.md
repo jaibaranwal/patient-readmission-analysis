@@ -1,5 +1,7 @@
 # Patient Readmission Analysis
 
+[![Validate project pipeline](https://github.com/jaibaranwal/patient-readmission-analysis/actions/workflows/validate.yml/badge.svg)](https://github.com/jaibaranwal/patient-readmission-analysis/actions/workflows/validate.yml)
+
 **Project 16 · Individual Data Analytics Project**
 
 **Prepared by:** Jai Baranwal  
