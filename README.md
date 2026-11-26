@@ -45,7 +45,7 @@ streamlit run app/streamlit_app.py
 
 ## What is in this repository
 - `src/` - cleaning, region mapping and analysis modules
-- `scripts/` - pipeline, SQLite loader, analysis and verification
+- `scripts/` - pipeline, SQLite loader, analysis, SQL summary and verification
 - `sql/` - SQLite schema and seven business queries
 - `data/sample/` - compact deterministic synthetic input for a repeatable smoke test
 - `app/` - Streamlit dashboard source
