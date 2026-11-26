@@ -45,7 +45,7 @@ streamlit run app/streamlit_app.py
 
 ## Project structure
 - `src/` - cleaning and analysis modules
-- `scripts/` - pipeline, SQLite loader, analysis, verification and report generation
+- `scripts/` - pipeline, SQLite loader, analysis and verification
 - `sql/` - SQLite schema and seven business queries
 - `data/sample/` - deterministic synthetic input data
 - `data/clean/` - cleaned dimensions, encounters, fact tables and quality log
@@ -53,20 +53,19 @@ streamlit run app/streamlit_app.py
 - `notebooks/` - annotated analysis notebook
 - `app/` - Streamlit dashboard
 - `reports/` - report PDFs, charts, KPIs and validation outputs
-- `docs/` - project documentation and Power BI/Excel guides
+- `docs/` - project documentation, dataset notes and Power BI/Excel guides
 - `powerbi/` - DAX measures
-- `submission/` - three LMS-ready files and a small upload ZIP
 
 ## Readmission definition
 An index inpatient encounter is flagged when the same patient has a subsequent inpatient encounter starting strictly after its discharge date and no later than 30 calendar days after discharge. Emergency and ambulatory encounters are not counted as inpatient readmissions. This is a descriptive encounter-based measure and does not determine preventability or clinical risk.
 
 ## LMS upload files
-The three LMS files are kept in `submission/`:
+The complete project ZIP supplied with this project contains a `submission/` folder with:
 1. `Patient_Readmission_Project_Report.pdf` - main project report.
 2. `Patient_Readmission_Dataset_Details.pdf` - dataset details and quality summary.
 3. `patient_readmission_cleaned.csv` - analysis-ready inpatient fact dataset.
 
-The full project ZIP contains the source code, data, SQL, database, notebook, charts, validation files and supporting guides.
+The files are also provided separately in the LMS upload pack. The full project ZIP contains the source code, data, SQL, database, notebook, charts, validation files and supporting guides.
 
 ## Notes
 A Power BI model guide and DAX measures are included. A native `.pbix` file must be saved from Power BI Desktop; it is not included here. The records in this repository are synthetic and must not be used for clinical decisions.
