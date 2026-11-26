@@ -2,16 +2,31 @@
 
 [![Validate project pipeline](https://github.com/jaibaranwal/patient-readmission-analysis/actions/workflows/validate.yml/badge.svg)](https://github.com/jaibaranwal/patient-readmission-analysis/actions/workflows/validate.yml)
 
-**Project 16 · Individual Data Analytics Project**
-
-**Prepared by:** Jai Baranwal  
-**GitHub:** [@jaibaranwal](https://github.com/jaibaranwal)  
+**Student:** Jai Baranwal  
+**Roll No.:** 2500321540074  
+**Branch & Section:** CSE DS - A  
+**Project:** HCLTech Career Shaper - Project 16  
+**GitHub:** https://github.com/jaibaranwal  
 **Repository:** https://github.com/jaibaranwal/patient-readmission-analysis
 
-## Project overview
-This project studies whether a completed inpatient encounter is followed by another inpatient encounter for the same synthetic patient within 30 days after discharge. It combines Python/pandas data cleaning, a SQLite star schema, seven analytical SQL queries, descriptive KPIs, four charts, a Streamlit dashboard and Power BI/Excel implementation guides.
+## About the project
+I built this project to study whether an inpatient encounter is followed by another inpatient stay for the same patient within 30 days after discharge. The work covers data cleaning, readmission calculation, SQLite modelling, SQL analysis, charts, a notebook and a Streamlit dashboard interface.
 
-## Quick run from this repository
+## Dataset used
+The current analysis uses a deterministic, project-generated synthetic dataset. It contains 120 synthetic patients, 7 synthetic hospital organisations and 435 raw encounter rows before cleaning. The generated data include a few controlled quality issues so that the cleaning and validation steps can be checked. They are not real patient records and are not the official Synthea sample.
+
+## Preview results
+- Raw encounters: 435
+- Clean encounters: 432
+- Eligible inpatient fact rows: 362
+- 30-day readmission flags: 78
+- Readmission rate: 21.55%
+- Automated validation: 7/7 passed
+- Separate patient-level flag checks: 20/20 passed
+
+These figures describe only the generated academic sample. They are not hospital performance or clinical findings.
+
+## Run the project
 Python 3.10+ is recommended.
 
 ```bash
@@ -23,44 +38,35 @@ pip install -r requirements.txt
 python scripts/run_pipeline.py --input data/sample
 python scripts/load_sqlite.py
 python scripts/run_analysis.py
+python scripts/manual_verify_20.py
 python tests/test_pipeline.py
 streamlit run app/streamlit_app.py
 ```
 
-The committed GitHub sample is a compact, project-generated synthetic smoke-test fixture (12 encounter rows, including inpatient and ambulatory records). It is not actual patient data and is not the same as the larger fixture used for the full report.
+## Project structure
+- `src/` - cleaning and analysis modules
+- `scripts/` - pipeline, SQLite loader, analysis, verification and report generation
+- `sql/` - SQLite schema and seven business queries
+- `data/sample/` - deterministic synthetic input data
+- `data/clean/` - cleaned dimensions, encounters, fact tables and quality log
+- `data/processed/` - SQLite database and query exports
+- `notebooks/` - annotated analysis notebook
+- `app/` - Streamlit dashboard
+- `reports/` - report PDFs, charts, KPIs and validation outputs
+- `docs/` - project documentation and Power BI/Excel guides
+- `powerbi/` - DAX measures
 
-## Larger submission-package preview
-The full submission ZIP supplied with this project was run against a larger deterministic project-generated fixture:
-- Raw encounters: 435
-- Clean encounters: 432
-- Eligible inpatient encounters: 362
-- 30-day readmissions: 78
-- Preview readmission rate: 21.55%
-- Synthetic patients: 120
-- SQL query exports: 7
-- Automated checks: 7/7 PASS
-- Independent scripted patient-case comparisons: 20/20 PASS
-- SQLite foreign-key violations: 0
+## Readmission definition
+An index inpatient encounter is flagged when the same patient has a subsequent inpatient encounter starting strictly after its discharge date and no later than 30 calendar days after discharge. Emergency and ambulatory encounters are not counted as inpatient readmissions. This is a descriptive encounter-based measure and does not determine preventability or clinical risk.
 
-Those are software-validation results from synthetic records, not hospital performance or clinical findings. The GitHub quick-run fixture will produce different totals.
+## LMS upload files
+The three LMS files are kept in the `submission/` folder:
+1. `Patient_Readmission_Project_Report.pdf` - main project report.
+2. `Patient_Readmission_Dataset_Details.pdf` - dataset details and quality summary.
+3. `patient_readmission_cleaned.csv` - analysis-ready inpatient fact dataset.
 
-## Repository structure
-- `src/` reusable cleaning and analysis modules
-- `scripts/` pipeline runner, SQLite loader and analysis runner
-- `sql/` SQLite schema and seven business queries
-- `app/` Streamlit dashboard
-- `data/sample/` compact synthetic smoke-test fixture
-- `docs/` problem statement, synopsis, SRS, data dictionary, source notes and BI guides
+The full project ZIP contains the source code, data, SQL, database, notebook, charts, validation files and supporting guides.
 
-The full submission package additionally contains the annotated Jupyter notebook, detailed data dictionary, Oracle reference SQL, ER diagram, full preview fixture, cleaned CSVs, SQLite database, result exports, KPI JSON, four PNG charts, validation files, final report PDF and synopsis PDF.
+## Notes
+A Power BI model guide and DAX measures are included. The native `.pbix` file must be saved from Power BI Desktop; it is not included here. The records in this repository are synthetic and must not be used for clinical decisions.
 
-## Readmission rule
-An index inpatient encounter is flagged when the same patient has a subsequent inpatient encounter starting 1–30 calendar days after its discharge date. Emergency and ambulatory encounters are not counted as inpatient readmissions. This is a descriptive encounter-based rule, not a causal or clinical-risk measure.
-
-## Dataset and limitations
-The included records are synthetic. They are not the official Synthea 1K CSV sample or real patient records. The full package includes source notes and a downloader for the official Synthea synthetic sample. Synthetic results cannot support diagnosis, treatment, risk scoring, preventability or hospital-performance claims.
-
-Power BI Desktop is a Windows application. Model relationships, DAX and a three-page report layout are documented; an actual PBIX must be saved from Power BI Desktop.
-
-## Source citation
-Walonoski et al. (2018), *Synthea: An approach, method, and software mechanism for generating synthetic patients and the synthetic electronic health care record*, Journal of the American Medical Informatics Association, 25(3), 230–238. https://doi.org/10.1093/jamia/ocx079
