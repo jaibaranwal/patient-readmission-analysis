@@ -1,0 +1,29 @@
+name: Validate project pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip pandas numpy matplotlib
+      - name: Run cleaning pipeline
+        run: python scripts/run_pipeline.py --input data/sample
+      - name: Load SQLite and export queries
+        run: python scripts/load_sqlite.py
+      - name: Generate KPIs and charts
+        run: python scripts/run_analysis.py
+      - name: Run acceptance checks
+        run: python tests/test_pipeline.py
