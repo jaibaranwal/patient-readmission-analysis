@@ -41,6 +41,9 @@ python scripts/run_analysis.py
 python scripts/manual_verify_20.py
 python tests/test_pipeline.py
 streamlit run app/streamlit_app.py
+
+# Run the complete validation sequence in one command (Mac/Linux)
+./scripts/run_submission_evidence.sh
 ```
 
 ## What is in this repository
