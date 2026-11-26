@@ -15,11 +15,11 @@
 2. `Patient_Readmission_Dataset_Details.pdf` - dataset source, sample fields, data dictionary and quality summary.
 3. `patient_readmission_cleaned.csv` - the 362-row, 17-column analysis-ready inpatient fact dataset.
 
-The files are in the `submission/` folder. The small ZIP in that folder contains the same three upload files and a short readme.
+These files are included in the `submission/` folder of the complete project ZIP and are also supplied separately in the LMS upload pack.
 
-## What stays in the project repository
+## What stays in GitHub
 
-The rest of the repository contains the Python source, SQL schema and queries, sample inputs, cleaned dimensions, notebook, Streamlit dashboard, chart and KPI outputs, validation files, Power BI DAX and Excel/Power BI guides.
+The repository holds the Python source, SQL schema and queries, sample inputs, cleaned dimensions, notebook, Streamlit dashboard, charts and KPI outputs, validation files, Power BI DAX, Excel/Power BI guides and dataset documentation.
 
 ## Data note
 
