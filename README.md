@@ -43,29 +43,27 @@ python tests/test_pipeline.py
 streamlit run app/streamlit_app.py
 ```
 
-## Project structure
-- `src/` - cleaning and analysis modules
+## What is in this repository
+- `src/` - cleaning, region mapping and analysis modules
 - `scripts/` - pipeline, SQLite loader, analysis and verification
 - `sql/` - SQLite schema and seven business queries
-- `data/sample/` - deterministic synthetic input data
-- `data/clean/` - cleaned dimensions, encounters, fact tables and quality log
-- `data/processed/` - query exports (the SQLite database is included in the full project ZIP)
-- `notebooks/` - annotated analysis notebook
-- `app/` - Streamlit dashboard
-- `reports/` - report PDFs, charts, KPIs and validation outputs
-- `docs/` - project documentation, dataset notes and Power BI/Excel guides
+- `data/sample/` - compact deterministic synthetic input for a repeatable smoke test
+- `app/` - Streamlit dashboard source
+- `docs/` - problem statement, data dictionary, dataset notes, SRS and Power BI/Excel guides
 - `powerbi/` - DAX measures
+- `tests/` - pipeline acceptance checks
+- `.github/workflows/` - GitHub Actions pipeline validation
 
 ## Readmission definition
 An index inpatient encounter is flagged when the same patient has a subsequent inpatient encounter starting strictly after its discharge date and no later than 30 calendar days after discharge. Emergency and ambulatory encounters are not counted as inpatient readmissions. This is a descriptive encounter-based measure and does not determine preventability or clinical risk.
 
-## LMS upload files
-The complete project ZIP supplied with this project contains a `submission/` folder with:
+## Full project and LMS files
+The accompanying **Patient_Readmission_Analysis_Final_Submission.zip** is the complete assessment package. Its `submission/` folder contains:
 1. `Patient_Readmission_Project_Report.pdf` - main project report.
 2. `Patient_Readmission_Dataset_Details.pdf` - dataset details and quality summary.
 3. `patient_readmission_cleaned.csv` - analysis-ready inpatient fact dataset.
 
-The files are also provided separately in the LMS upload pack. The full project ZIP contains the source code, data, SQL, database, notebook, charts, validation files and supporting guides.
+The complete ZIP also contains the annotated notebook, extended synthetic fixture, cleaned data, SQLite database, seven query result CSVs, four charts, KPI outputs, validation files, final PDFs and supporting guides. These generated deliverables are kept in the full package; the GitHub repository is the code and documentation home.
 
 ## Notes
 A Power BI model guide and DAX measures are included. A native `.pbix` file must be saved from Power BI Desktop; it is not included here. The records in this repository are synthetic and must not be used for clinical decisions.
